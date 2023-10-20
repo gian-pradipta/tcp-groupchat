@@ -9,8 +9,13 @@ p1 = subprocess.Popen(command)
 p2 = subprocess.Popen(command2)
 
 try:
-    pass
+    p1.wait()
+    p2.wait()
 except KeyboardInterrupt:
-    print("interrupt")
-    p1.terminate()
-    p2.terminate()
+    try:
+       p1.terminate()
+       p2.terminate
+    except OSError:
+       pass
+    p1.wait()
+    p2.wait()
